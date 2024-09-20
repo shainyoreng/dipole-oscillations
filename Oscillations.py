@@ -1,6 +1,7 @@
 from Dipole import Dipole2D
 from Vector2 import Vector2
-from math import sin, cos, sqrt, pi
+import time
+from math import sin, cos, sqrt, pi, exp
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -8,10 +9,10 @@ M = 0.005
 g = 9.8
 R = 0.021
 m = 0.15 * 10 ** -3  # 10 ** -3 = sqrt(mu_0/4pi)
-I = 3/2 * M * R * R
+I = 0.2 * 3/2 * M * R * R
 D = 0.064
-DT = 0.00003
-SIMULATION_TIME = 60
+DT = 0.00004
+SIMULATION_TIME = 20
 
 stable_point = -1.4849131468203767
 
@@ -44,9 +45,9 @@ def update_and_give_angles(dipoles, *args):
 
 
 def main():
-    left_dipole = Dipole2D(Vector2(-D), stable_point + 0.005, m, I)
+    left_dipole = Dipole2D(Vector2(-D), stable_point + 0.000, m, I)
     middle_dipole = Dipole2D(Vector2(), 0, m, I)
-    right_dipole = Dipole2D(Vector2(D), stable_point - 0.002, m, I)
+    right_dipole = Dipole2D(Vector2(D), stable_point + 0.005, m, I)
     dipoles = DipoleDistribution()
     dipoles.add_dipole(left_dipole)
     dipoles.add_dipole(middle_dipole, fixed=True)
@@ -57,9 +58,24 @@ def main():
     right = [0] * num
     index = 0
     while index < num:
+
+		#to see the progress of the simulation
+        if index%1000 == 0:
+            print(SIMULATION_TIME * index/num)
+
+
         dipoles.update()
         left[index] = left_dipole.theta
         right[index] = right_dipole.theta
+
+		#chage the value of alpha to change the damping effect
+        alpha = 0
+        left_dipole.theta = stable_point + (left_dipole.theta-stable_point) * exp(-alpha*DT*DT)
+        right_dipole.theta = stable_point + (right_dipole.theta-stable_point) * exp(-alpha*DT*DT)
+        left_dipole.omega = left_dipole.omega * exp(-alpha*DT*DT)
+        right_dipole.omega = right_dipole.omega * exp(-alpha*DT*DT)
+
+
         index += 1
     print(left_dipole.theta, right_dipole.theta)
     left = np.array(left)
