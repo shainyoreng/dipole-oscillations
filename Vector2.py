@@ -1,3 +1,6 @@
+from math import sin ,cos
+
+
 class Vector2:
 
     def __init__(self, x: float = 0, y: float = 0):
@@ -33,3 +36,7 @@ class Vector2:
 
     def cross(self, other) -> float:
         return self.x*other.y - self.y*other.x
+
+    def rotate(self, angle):
+        """rotates the vector by a certain angle"""
+        return Vector2(self.x * cos(angle) - self.y * sin(angle), self.x * sin(angle) + self.y * cos(angle))
