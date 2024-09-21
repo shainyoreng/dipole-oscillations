@@ -4,24 +4,36 @@ from math import sin, cos
 
 class Dipole2D:
 
-    def __init__(self, loc, theta, size, moi):
+    def __init__(self, loc, theta, R, size, moi,center_vector):
         self.size = size
         self.moi = moi
         self.loc = loc
         self.theta = theta
+        self.R = R
         self.omega: float = 0
         self.find_moment_in_cartesian()
+        self.center_vector = center_vector
+
 
     def find_moment_in_cartesian(self):
         self.moment = Vector2(sin(self.theta), cos(self.theta)) * self.size
 
+
+    def center_loc(self):
+        """returns the actual location of the moment of the dipole"""
+        return self.loc + self.center_vector.rotate(-self.theta)
+
+
     def get_field(self, loc: Vector2):
         """returns the field the dipole induces at a specific point"""
-        if loc == self.loc:
+
+        if loc == self.center_loc():
             return Vector2()
-        r_hat: Vector2 = loc - self.loc
+
+        r_hat: Vector2 = loc - self.center_loc()
         r = abs(r_hat)
         r_hat /= r
+
         return (r_hat * 3 * (self.moment * r_hat) - self.moment) / r**3
 
     def update(self, dt, B_field: Vector2, external_moment: float = 0, resistance=0):
