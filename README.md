@@ -38,8 +38,7 @@ $$
 Thus the corresponding Lagrangian is
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) 2\sin
-\theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) +2\sin\theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
 $$
 
 In order to get the two normal modes for small oscillations around 0 (the stable point), we need to use small angle approximations, yielding
