@@ -2,7 +2,7 @@
 
 In this project we analyze coupled Oscillating magnets modeled as dipoles on rods, as in the following sketch:
 
-![image](https://github.com/user-attachments/assets/6dcb8422-0392-4f3f-84da-6161271e18e2)
+![image](https://github.com/user-attachments/assets/96464dfb-f5d7-4f82-832c-f65d21427460)
 
 In this system there are 3 thin cylindrical magnets of radius $R$ and of equal strengths $\left|\vec{m}_ {1}\right|=\left|\vec{m}_ {3}\right|=\left|\vec{m}_{3}\right|$. One is stationary in the middle and the other two can freely rotate around their point of contact with the ground.
 In order to tackle this problem we will use a few simplifying assumptions:
@@ -14,7 +14,7 @@ In order to tackle this problem we will use a few simplifying assumptions:
 
 Before we jumped into solving this intimidating problem, we solved a similar one as can be be seen in this sketch:
 
-![image](https://github.com/user-attachments/assets/50bfd9e4-e28c-4b21-97a2-61ebd4f0e969)
+![image](https://github.com/user-attachments/assets/ec266417-e2bf-48ee-bb52-1f1216fc7240)
 
 as you can see this system avoids the effect of gravity by making the magnets rotate around their center and thus we can trivially conclude that $0^\circ$ is the angle of stability. This system also makes the magnetic field calculations a lot simpler.
 You can see this system simulated in time at this [link](https://alon-h.github.io/dipole-oscillations/) or you could <kbd>Ctrl+C</kbd> $\to$ <kbd>Ctrl+V</kbd> the sketch.js file into the [online p5js editor](https://editor.p5js.org) and edit the values yourself.
@@ -55,7 +55,7 @@ $\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{1}}=(1,-1)$ 
 
 $\omega_{2}=\sqrt{\frac{11\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{2}}=(1,1)$ ![20240922-1509-36 3784718](https://github.com/user-attachments/assets/0a6680e0-b469-4cae-9903-8c6500a82352)
 
-Now we can express every oscillation as $(\theta_1(t),\theta_2(t)) = A v_1 \sin(\omega_1 t + \varphi_1) + B v_2 \sin(\omega_2 t + \varphi_1)$. if we start an oscillation by giving just one magnet spin its equivalant to the boundary conditions $(\theta_1(0),\theta_2(0)) = (0,0), \\ (\dot{\theta_1}(0),\dot{\theta_2}(0))=(\omega_0,0)$ from those we can get the expected solution:
+Now we can express every oscillation as $(\theta_1(t),\theta_2(t)) = A \vec{v_1} \sin(\omega_1 t + \varphi_1) + B \vec{v_2} \sin(\omega_2 t + \varphi_1)$. if we start an oscillation by giving just one magnet spin its equivalant to the boundary conditions $(\theta_1(0),\theta_2(0)) = (0,0), \\ (\dot{\theta_1}(0),\dot{\theta_2}(0))=(\omega_0,0)$ from those we can get the expected solution:
 
 $$ \left(\begin{array}{c}
 \theta_1\left(t\right)\\
