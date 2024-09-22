@@ -18,43 +18,31 @@ You can see this system simulated in time in this [link](https://alon-h.github.i
 
 ## Theoretical Results
 
-We will use Lagrangian mechanics to solve this problem theoretically. We will first write the Lagrangian for the simplest system. The total magnetic energy stored in the system is given by:
-
-$$
-U = U_{12} + U_{13} + U_{23}
-$$
-
-where 
+We will use Lagrangian mechanics to solve this problem theoretically. We will first write the Lagrangian for the simplest system. The total magnetic energy stored in the system is given by $U = U_{12} + U_{13} + U_{23}$ where 
 
 $$
 U_{ij} = -\vec{m_{i}} \cdot \vec{B_{j}}, \quad \vec{B} = \frac{\mu_{0}}{4\pi}\left(3\hat{r}\left(\vec{m}\cdot\hat{r}\right) - \vec{m}\right)
 $$
 
-are given by
+those can be found to be:
 
 $$
-U_{12} = \frac{\mu_{0} m^{2} \cos \theta_{1}}{4\pi d^{3}}
-$$
-
-$$
-U_{13} = \frac{\mu_{0} m^{2} \cos \theta_{2}}{4\pi d^{3}}
-$$
-
-$$
-U_{23} = \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left(2\sin \theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right)
+\begin{array}{ccc}
+U_{12} = \frac{\mu_{0} m^{2} \cos \theta_{1}}{4\pi d^{3}}, & U_{13} = \frac{\mu_{0} m^{2} \cos \theta_{2}}{4\pi d^{3}}, & U_{23} = \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left(2\sin \theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right)
+\end{array}
 $$
 
 Thus the corresponding Lagrangian is
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_{1}^{2} + \dot{\theta}_{2}^{2}\right) - \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) 2\sin
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_{0} m^{2}}{32\pi d^{3}}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) 2\sin
 \theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
 $$
 
 Now to get the two normal modes for small oscillations around 0 (the stable point), we use the small angle approximation to get
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_{1}^{2} + \dot{\theta}_{2}^{2}\right) - \frac{\mu_{0} m^{2}}{8 d^{3}}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_ {0} m^{2}}{8 d^{3}}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
 2\theta_{1} \theta_{2}\right]
 $$
 
