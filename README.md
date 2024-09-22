@@ -1,20 +1,23 @@
 # Magnetic dipole coupled oscillators - M.D.C.O
 
 In this project we analyze coupled Oscillating magnets modeled as dipoles on rods, as in the following sketch:
+
 ![image](https://github.com/user-attachments/assets/6dcb8422-0392-4f3f-84da-6161271e18e2)
 
-In this system there are 3 magnets of equal strengths $\left|\vec{m}_ {1}\right|=\left|\vec{m}_ {3}\right|=\left|\vec{m}_{3}\right|$, one stationary in the middle and two that can freely rotate around a rod of length $R$.
-We will use a few assumptions.
-1. The magnets can be modeled as a magnetic dipole moment.
-2. Air resistance is completely neglected, and so are the rods' masses.
+In this system there are 3 thin cylindrical magnets of radius $R$ and of equal strengths $\left|\vec{m}_ {1}\right|=\left|\vec{m}_ {3}\right|=\left|\vec{m}_{3}\right|$. One is stationary in the middle and the other two can freely rotate around their point of contact with the ground.
+In order to tackle this problem we will use a few simplifying assumptions:
+1. The magnets can be modeled as their magnetic dipole moment connected to the point of contact by a massles rod of radius $R$.
+2. Air resistance is completely neglegible.
 
 ![image](https://github.com/user-attachments/assets/8ac60b9f-0b27-49f6-a548-e1a47117773f)
 
 
-Before we jumped into this intimidating problem, we solved a similar one as can be be seen in this sketch:
+Before we jumped into solving this intimidating problem, we solved a similar one as can be be seen in this sketch:
+
 ![image](https://github.com/user-attachments/assets/50bfd9e4-e28c-4b21-97a2-61ebd4f0e969)
+
 as you can see this system avoids the effect of gravity by making the magnets rotate around their center and thus we can trivially conclude that $0^\circ$ is the angle of stability. This system also makes the magnetic field calculations a lot simpler.
-You can see this system simulated in time in this [link](https://alon-h.github.io/dipole-oscillations/) or you could <kbd>Ctrl+C</kbd> $\to$ <kbd>Ctrl+V</kbd> the sketch.js file into the [online p5js editor](https://editor.p5js.org) and then be able to edit the values.
+You can see this system simulated in time at this [link](https://alon-h.github.io/dipole-oscillations/) or you could <kbd>Ctrl+C</kbd> $\to$ <kbd>Ctrl+V</kbd> the sketch.js file into the [online p5js editor](https://editor.p5js.org) and edit the values yourself.
 
 ## Theoretical Results
 
@@ -24,7 +27,7 @@ $$
 U_{ij} = -\vec{m_{i}} \cdot \vec{B_{j}}, \quad \vec{B} = \frac{\mu_{0}}{4\pi}\left(3\hat{r}\left(\vec{m}\cdot\hat{r}\right) - \vec{m}\right)
 $$
 
-those can be found to be:
+Those can be found to be:
 
 $$
 \begin{array}{ccc}
@@ -39,15 +42,14 @@ L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \
 \theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
 $$
 
-Now to get the two normal modes for small oscillations around 0 (the stable point), we use the small angle approximation to get
+In order to get the two normal modes for small oscillations around 0 (the stable point), we need to use small angle approximations, yielding
 
 $$
 L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_ {0} m^{2}}{32 \pi d^{3}}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
 2\theta_{1} \theta_{2}\right]
 $$
 
-
-From here we deduce the two normal modes are:
+From here we can conclude the two normal modes are
 
 $\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{1}}=(1,-1)$ ![20240922-1514-11 5678527](https://github.com/user-attachments/assets/2659fde8-2867-4f32-bbf5-3ba655479c99)
 
