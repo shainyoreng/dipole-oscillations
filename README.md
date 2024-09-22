@@ -14,6 +14,8 @@ We will use a few assumptions.
 Before we jumped into this intimidating problem, we solved a similar one as can be be seen in this sketch:
 ![image](https://github.com/user-attachments/assets/50bfd9e4-e28c-4b21-97a2-61ebd4f0e969)
 as you can see this system avoids the effect of gravity by making the magnets rotate around their center and thus we can trivially conclude that $0^\circ$ is the angle of stability. This system also makes the magnetic field calculations a lot simpler.
+You can see this system simulated in time in this [link](https://alon-h.github.io/dipole-oscillations/) or you could <kbd>Ctrl+C</kbd> $\to$ <kbd>Ctrl+V</kbd> the sketch.js file into the [online p5js editor](https://editor.p5js.org) and then be able to edit the values.
+
 We will use the equations for a magnetic field produced by a magnetic moment and the potential energy of a dipole in a field:
 
 $$ \vec{B} = \frac{\mu_ 0}{4\pi}\frac{3\hat{r} \left( \hat{r}\cdot \vec{m} \right)-\vec{m}}{\left| r \right|^3},\space U = -\vec{m}\cdot \vec{B}$$
