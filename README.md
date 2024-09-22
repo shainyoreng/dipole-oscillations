@@ -42,7 +42,7 @@ $$
 Now to get the two normal modes for small oscillations around 0 (the stable point), we use the small angle approximation to get
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_ {0} m^{2}}{8 d^{3}}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{\mu_ {0} m^{2}}{32 \pi d^{3}}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
 2\theta_{1} \theta_{2}\right]
 $$
 
@@ -50,13 +50,13 @@ $$
 From here we deduce the two normal modes are:
 
 $$
-\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32Id^{3}}},\vec{v_{1}}=\begin{pmatrix}1\\
+\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{1}}=\begin{pmatrix}1\\
 -1
 \end{pmatrix}
 $$
 
 $$
-\omega_{2}=\sqrt{\frac{11\mu_0 m^{2}}{32Id^{3}}},\vec{v_{2}}=\begin{pmatrix}1\\
+\omega_{2}=\sqrt{\frac{11\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{2}}=\begin{pmatrix}1\\
 1
 \end{pmatrix}
 $$
