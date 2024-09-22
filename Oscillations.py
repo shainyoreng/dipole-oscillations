@@ -22,6 +22,48 @@ stable_point = 1.1203283726727613
 # Unit vector in the y direction
 y_hat = Vector2(0,1)
 
+
+def plot_graph(t,left,right):
+	# Convert lists to numpy arrays for plotting
+	left = np.array(left)
+	right = np.array(right)
+
+	# Add axis titles
+	plt.xlabel('Time [Sec]')
+	plt.ylabel('Angle [Rad]')
+
+	# Change the background color of the plot
+	fig = plt.gcf()
+	fig.patch.set_facecolor((13/255, 17/255, 23/255))
+	ax = plt.gca()
+	ax.set_facecolor((13/255, 17/255, 23/255))
+
+	# Set text color to white
+	ax.xaxis.label.set_color('white')
+	ax.yaxis.label.set_color('white')
+	ax.tick_params(axis='x', colors='white')
+	ax.tick_params(axis='y', colors='white')
+	ax.spines['bottom'].set_color('white')
+	ax.spines['top'].set_color('white')
+	ax.spines['left'].set_color('white')
+	ax.spines['right'].set_color('white')
+	ax.title.set_color('white')
+
+	# Plot the angles of the dipoles over time
+	plt.plot(t, -left, "c")
+	plt.plot(t, right, "m")
+	plt.show()
+
+def save_cvs(t, left, right, filename):
+	# Save the data to a CSV file
+	with open(filename, 'w', newline='') as csvfile:
+			fieldnames = ['time', 'left_theta', 'right_theta']
+			writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+			writer.writeheader()
+			for i in range(len(t)):
+				writer.writerow({'time': t[i], 'left_theta': left[i], 'right_theta': right[i]})
+
 class DipoleDistribution:
 	"""
 	This class represents a distribution of dipoles.
@@ -108,27 +150,15 @@ def main():
 	# Print final angles of the dipoles
 	print(left_dipole.theta, right_dipole.theta)
 	
-	# Convert lists to numpy arrays for plotting
-	left = np.array(left)
-	right = np.array(right)
-	
-	# Plot the angles of the dipoles over time
-	plt.plot(t, -left, "r")
-	plt.plot(t, right, "b")
-	plt.show()
+	plot_graph(t, left, right)
 	
 	# Save every 100th data point to a CSV file
-	t_reduced = t[::100]
-	left_reduced = left[::100]
-	right_reduced = right[::100]
-
-	with open('oscillations_data_reduced.csv', 'w', newline='') as csvfile:
-		fieldnames = ['time', 'left_theta', 'right_theta']
-		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-		writer.writeheader()
-		for i in range(len(t_reduced)):
-			writer.writerow({'time': t_reduced[i], 'left_theta': left_reduced[i], 'right_theta': right_reduced[i]})
+	if input("Save data to CSV file? (y/n): ") == 'y':
+		t_reduced = t[::100]
+		left_reduced = left[::100]
+		right_reduced = right[::100]
+		save_cvs(t_reduced, left_reduced, right_reduced, 'oscillations_data_reduced.csv')
+		
 
 if __name__ == '__main__':
 	main()
