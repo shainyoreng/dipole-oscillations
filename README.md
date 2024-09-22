@@ -24,7 +24,7 @@ And from from those two equations we can get the pair-wise magnetic potential of
 
 $$ U_{12} = , U_{21} = , U_{13} = , U_{31} = , U_{23}  = , U_{32} = $$
 
-With those and with the rotational kinetic energy $K = \frac{1}{2}I\left(\dot{\theta_1}^2+\dot{\theta_2}^2\right)$
+With those and with the rotational kinetic energy $K = \frac{1}{2}I (\dot{\theta_1}^2+\dot{\theta_2}^2)$
 We get the Lagrangian
 
 $$ L = $$
