@@ -49,20 +49,13 @@ $$
 
 From here we deduce the two normal modes are:
 
-$$
-\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{1}}=\begin{pmatrix}1\\
--1
-\end{pmatrix}
-$$
+$\omega_{1}=\sqrt{\frac{7\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{1}}=(1,-1)$ ![20240922-1514-11 5678527](https://github.com/user-attachments/assets/2659fde8-2867-4f32-bbf5-3ba655479c99)
 
-$$
-\omega_{2}=\sqrt{\frac{11\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{2}}=\begin{pmatrix}1\\
-1
-\end{pmatrix}
-$$
+$\omega_{2}=\sqrt{\frac{11\mu_0 m^{2}}{32\pi Id^{3}}}, \quad \vec{v_{2}}=(1,1)$ ![20240922-1509-36 3784718](https://github.com/user-attachments/assets/0a6680e0-b469-4cae-9903-8c6500a82352)
 
-We could have easily included the gravitational potential of the magnets, but then approximating around a non-zero stable point requires much more work. We also haven't gotten around to writing the Lagrangian for the case where the dipole is on a rod. If you think you found an appropriate Lagrangian, feel free to make contact.
+
 ### notes
 We could have easily included the gravitational potential of the magnets, but then approximating around a non zero stable point requires much more work. 
 We also haven't gotten around to writing the Lagrangian for the case where the dipole is on a rod. if you think you found an appropriate Lagrangian feel free to make contact.
+
 ![image](https://github.com/user-attachments/assets/b131ce4b-78da-4cc2-9139-91fde99f54fa)
