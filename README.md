@@ -71,7 +71,7 @@ in the next step we added mass onto the side of the magnet as can be seen here. 
 ![image](https://github.com/user-attachments/assets/d191aa5b-61b8-4994-b905-e641e91829f5)
 
 
-Fhe solution proccess was simillar as in the previus step, We found the lagrangian, Aprroximated it around $\theta=\alpha$ and used EL to find the linear ODE for $\theta_1$. we used $a=\frac{\mu_0 m^{2}}{d^{3}}, \quad b=MgR$
+Fhe solution proccess was simillar as in the previus step, We found the lagrangian, Aprroximated it around $\theta=\alpha$ and used EL to find the linear ODE for $\theta_1$. we used $a=\mu_0 m^{2}D^{-3}, \quad b=MgR$
 
 $$ I\frac{d^{2}\theta_{1}}{dt^{2}}=-\theta_{1}\left(a\\ \cos\left(\alpha\right)+\frac{a}{8}\sin\left(\alpha\right)^{2}+\frac{a}{8}+b\sin\left(\alpha\right)\right)+\theta_{2}\left(\frac{a}{4}-\frac{a}{8}\sin\left(\alpha\right)^{2}\right)+a\\ \sin\left(\alpha\right)\left(\frac{\cos\left(\alpha\right)}{8}-1\right)+b\cos\left(\alpha\right)$$
 
