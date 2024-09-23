@@ -35,16 +35,16 @@ U_{12} = \frac{\mu_{0} m^{2} \cos \theta_{1}}{4\pi d^{3}}, & U_{13} = \frac{\mu_
 \end{array}
 $$
 
-At this point we can define $a=\mu_0 m^{2}D^{-3}$ in order to remove unneccesary parameters. Thus the corresponding Lagrangian is
+At this point we can define $a=\frac{\mu_0 m^{2}}{4\pi d^{3}}$ in order to remove unneccesary parameters. Thus the corresponding Lagrangian is
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - a\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) +2\sin\theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{a}{8}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) +2\sin\theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
 $$
 
 In order to get the two normal modes for small oscillations around $pi$ (the stable point), we need to use small angle approximations, yielding
 
 $$
-L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) + a\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
+L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) + \frac{a}{8}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
 2\theta_{1} \theta_{2}\right]
 $$
 
@@ -53,6 +53,7 @@ From here we can conclude the two normal modes are
 $\omega_{1}=\sqrt{\frac{7a}{I}}, \quad \vec{v_{1}}=(1,-1)$ <img src="https://github.com/user-attachments/assets/ff84db35-8c2c-42e5-9ef5-d929bf890041" width="140" height="80"/>
 
 $\omega_{2}=\sqrt{\frac{11a}{I}}, \quad \vec{v_{2}}=(1,1)$  <img src="https://github.com/user-attachments/assets/ef8c0452-ec58-4c26-a3d2-f0ff3b3cc439" width="140" height="80"/>
+
 
 Now we can express every oscillation as $(\theta_1(t),\theta_2(t)) = A \vec{v_1} \sin(\omega_1 t + \varphi_1) + B \vec{v_2} \sin(\omega_2 t + \varphi_1)$. if we start an oscillation by giving just one magnet spin its equivalant to the boundary conditions $(\theta_1(0),\theta_2(0)) = (0,0), \\ (\dot{\theta_1}(0),\dot{\theta_2}(0))=(\omega_0,0)$ from those we can get the expected solution:
 
