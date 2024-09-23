@@ -41,7 +41,7 @@ $$
 L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) - \frac{a}{8}\left[8\left(\cos \theta_{1} + \cos \theta_{2}\right) +2\sin\theta_{1} \sin \theta_{2} + \cos \theta_{1} \cos \theta_{2}\right]
 $$
 
-In order to get the two normal modes for small oscillations around $pi$ (the stable point), we need to use small angle approximations, yielding
+In order to get the two normal modes for small oscillations around $\pi$ (the stable point), we need to use small angle approximations, yielding
 
 $$
 L = \frac{1}{2} I \left(\dot{\theta}_ {1}^{2} + \dot{\theta}_ {2}^{2}\right) + \frac{a}{8}\left[\frac{9}{2}\left(\theta_{1}^{2} + \theta_{2}^{2}\right)-
