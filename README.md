@@ -50,9 +50,9 @@ $$
 
 From here we can conclude the two normal modes are
 
-$\omega_{1}=\sqrt{\frac{7a}{I}}, \quad \vec{v_{1}}=(1,-1)$ ![20240922-1514-11 5678527](https://github.com/user-attachments/assets/2659fde8-2867-4f32-bbf5-3ba655479c99)
+$\omega_{1}=\sqrt{\frac{7a}{I}}, \quad \vec{v_{1}}=(1,-1)$ <img src="https://github.com/user-attachments/assets/ff84db35-8c2c-42e5-9ef5-d929bf890041" width="140" height="80"/>
 
-$\omega_{2}=\sqrt{\frac{11a}{I}}, \quad \vec{v_{2}}=(1,1)$ ![20240922-1509-36 3784718](https://github.com/user-attachments/assets/0a6680e0-b469-4cae-9903-8c6500a82352)
+$\omega_{2}=\sqrt{\frac{11a}{I}}, \quad \vec{v_{2}}=(1,1)$  <img src="https://github.com/user-attachments/assets/ef8c0452-ec58-4c26-a3d2-f0ff3b3cc439" width="140" height="80"/>
 
 Now we can express every oscillation as $(\theta_1(t),\theta_2(t)) = A \vec{v_1} \sin(\omega_1 t + \varphi_1) + B \vec{v_2} \sin(\omega_2 t + \varphi_1)$. if we start an oscillation by giving just one magnet spin its equivalant to the boundary conditions $(\theta_1(0),\theta_2(0)) = (0,0), \\ (\dot{\theta_1}(0),\dot{\theta_2}(0))=(\omega_0,0)$ from those we can get the expected solution:
 
