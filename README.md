@@ -67,8 +67,9 @@ $$ \left(\begin{array}{c}
 and from the simulation we can confirm this solution:
 ![image](https://github.com/user-attachments/assets/26a92121-7142-47ec-a8ff-695c4451a45c)
 
-in the next step we added mass onto the side of the magnet as can be seen here (not the right image!!!!!!!). this was in order to find the frequencies around a non-zero point
-![image](https://github.com/user-attachments/assets/b131ce4b-78da-4cc2-9139-91fde99f54fa)
+in the next step we added mass onto the side of the magnet as can be seen here. this was in order to find the frequencies around a non-zero point
+![image](https://github.com/user-attachments/assets/d191aa5b-61b8-4994-b905-e641e91829f5)
+
 
 Fhe solution proccess was simillar as in the previus step, We found the lagrangian, Aprroximated it around $\theta=\alpha$ and used EL to find the linear ODE for $\theta_1$. we used $a=\frac{\mu_0 m^{2}}{d^{3}}, \quad b=MgR$
 
