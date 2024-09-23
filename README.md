@@ -67,8 +67,21 @@ $$ \left(\begin{array}{c}
 and from the simulation we can confirm this solution:
 ![image](https://github.com/user-attachments/assets/26a92121-7142-47ec-a8ff-695c4451a45c)
 
+in the next step we added mass onto the side of the magnet as can be seen here. this was in order to find the frequencies around a non-zero point
+![image](https://github.com/user-attachments/assets/d191aa5b-61b8-4994-b905-e641e91829f5)
+
+
+Fhe solution proccess was simillar as in the previus step, We found the lagrangian, Aprroximated it around $\theta=\alpha$ and used EL to find the linear ODE for $\theta_1$. we used $a=\mu_0 m^{2}D^{-3}, \quad b=MgR$
+
+$$ I\frac{d^{2}\theta_{1}}{dt^{2}}=-\theta_{1}\left(a\\ \cos\left(\alpha\right)+\frac{a}{8}\sin\left(\alpha\right)^{2}+\frac{a}{8}+b\sin\left(\alpha\right)\right)+\theta_{2}\left(\frac{a}{4}-\frac{a}{8}\sin\left(\alpha\right)^{2}\right)+a\\ \sin\left(\alpha\right)\left(\frac{\cos\left(\alpha\right)}{8}-1\right)+b\cos\left(\alpha\right)$$
+
+Firstly we know that if $\alpha$ is an equilibrium then $\frac{d^{2}\theta_{1}}{dt^{2}}\mid_{\theta_1=\theta_2=0} = 0 \to \tan\left(\alpha\right)\left(\frac{\cos\left(\alpha\right)}{8}-1\right)=-\frac{b}{a} \to \alpha \approx \arctan\frac{b}{a}$
+
+From the ODE we can find the normal modes' frequencies
+
+$$\omega_{1}=\sqrt{\frac{a\cos\left(\alpha\right)+\frac{a}{4}\sin\left(\alpha\right)^{2}-\frac{a}{8}+b\sin\left(\alpha\right)}{I}} \approx \sqrt{\frac{\sqrt{a^{2}+b^{2}}+\frac{a}{8}\frac{b^{2}-a^{2}}{b^{2}+a^{2}}}{I}}\$$
+
+$$\omega_{2}=\sqrt{\frac{a\cos\left(\alpha\right)+\frac{3}{8}a+b\sin\left(\alpha\right)}{I}} \approx \sqrt{\frac{\sqrt{a^{2}+b^{2}}+\frac{3}{8}a}{I}} $$
 ### notes
 We could have easily included the gravitational potential of the magnets, but then approximating around a non zero stable point requires much more work. 
 We also haven't gotten around to writing the Lagrangian for the case where the dipole is on a rod. if you think you found an appropriate Lagrangian feel free to make contact.
-
-![image](https://github.com/user-attachments/assets/b131ce4b-78da-4cc2-9139-91fde99f54fa)
