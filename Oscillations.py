@@ -12,14 +12,14 @@ import csv
 # Constants
 M = 0.005  # Mass of the dipole
 g = 9.8  # Acceleration due to gravity
-R = 0.0098  # Radius of the dipole
-m = 9 * 10 ** -3.5  # Magnetic moment
+R = 0.015  # Radius of the dipole
+m = 0.35 * 10 ** -3.5  # Magnetic moment
 I = 3 / 2 * M * R * R  # Moment of inertia
 D = 0.04  # Distance between dipoles
 
 # Simulation parameters
-DT = 0.0001  # Time step for the simulation
-SIMULATION_TIME = 0.1  # Total simulation time
+DT = 0.001  # Time step for the simulation
+SIMULATION_TIME = 1  # Total simulation time
 ANIMATION_SPEED = 1  # compared to real time
 FRAME_TO_DATA_RATIO = 1  # Number of data points between frames
 # most computer can only handle up to 1 frame per millisecond
@@ -29,9 +29,9 @@ RESISTANCE = 0.00  # Resistance (damping) term
 ALPHA = 0  # coefficient for counteracting energy gain
 
 # Stable point for the dipole
-stable_point = -3.7
+stable_point = 0.7
 
-MagnetQuality = 15  # Number of dipoles in each magnet
+MagnetQuality = 5  # Number of dipoles in each magnet
 
 def main():
     """
