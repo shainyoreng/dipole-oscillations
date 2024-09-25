@@ -51,3 +51,14 @@ class Vector2:
     def rotate(self, angle):
         """rotates the vector by a certain angle"""
         return Vector2(self.x * cos(angle) - self.y * sin(angle), self.x * sin(angle) + self.y * cos(angle))
+
+    def get_normalized(self):
+        """returns the normalized vector"""
+        size = abs(self)
+        if size == 0:
+            return Vector2()
+        return Vector2(self.x/size, self.y/size)
+
+    def get_cords(self):
+        """returns the vector's coordinates as a tuple"""
+        return self.x, self.y
