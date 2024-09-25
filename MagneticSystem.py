@@ -1,5 +1,8 @@
 from Magnet2 import Magnet2
 from math import exp
+
+from RungaKutta import approximation_increment_RNK6f7
+
 # MagneticSystem.py
 
 
@@ -21,7 +24,19 @@ class MagneticSystem:
 				return magnet
 		return None
 
-	def update(self):
+	def update(self,ddtheta1,ddtheta2,magnet1_id,magnet2_id):
+		magnet1 = self.getMagnet(magnet1_id)
+		magnet2 = self.getMagnet(magnet2_id)
+
+		theta1,theta2,omega1,omega2 = magnet1.theta,magnet2.theta,magnet1.omega,magnet2.omega
+		theta1,theta2,omega1,omega2 = approximation_increment_RNK6f7(ddtheta1,ddtheta1,theta1,theta2,omega1,omega2,self.Dt)
+
+		magnet1.theta = theta1
+		magnet1.omega = omega1
+
+		magnet1.theta = theta2
+		magnet1.omega = omega2
+
 		for id, magnet in self.magnets:
 			magnet.update(self.Dt,self.magnets,id)
 	

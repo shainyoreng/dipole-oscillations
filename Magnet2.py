@@ -50,6 +50,11 @@ class Magnet2:
 				torque += self.getDipoleMoment(idx,self.theta).cross(magnetic_field)
 		return torque
 
+	def getAngularAcceleration(self,all_magnets,magnet_id):
+		return (self.calculateTorque(all_magnets,magnet_id)+self.getGravTorque(self.theta))/self.moi
+
+	def setTheta(self,theta):
+		self.theta = theta
 	# Update the angle and angular velocity based on the torque and time step Dt
 	def update(self, Dt, all_magnets,magnet_id):
 		self.theta += self.omega * Dt

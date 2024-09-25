@@ -18,7 +18,7 @@ I = 3 / 2 * M * R * R  # Moment of inertia
 D = 0.04  # Distance between dipoles
 
 # Simulation parameters
-DT = 0.0001  # Time step for the simulation
+DT = 0.005  # Time step for the simulation
 SIMULATION_TIME = 1  # Total simulation time
 ANIMATION_SPEED = 1  # compared to real time
 FRAME_TO_DATA_RATIO = 1  # Number of data points between frames
@@ -29,7 +29,7 @@ RESISTANCE = 0.00  # Resistance (damping) term
 ALPHA = 0  # coefficient for counteracting energy gain
 
 # Stable point for the dipole
-stable_point = 0.3
+stable_point =0.7
 
 MagnetQuality = 15  # Number of dipoles in each magnet
 
@@ -48,7 +48,7 @@ def main():
                                                       2*R*idx*sin(theta)/(MagnetQuality-1)),
                            lambda idx, theta: Vector2(-sin(theta)*m/MagnetQuality,
                                                        cos(theta)*m/MagnetQuality))
-    LeftMagnet = Magnet2(MagnetQuality, LeftMagnetGenerator, lambda theta: -cos(theta)*M*g*R, I,theta0=stable_point)
+    LeftMagnet = Magnet2(MagnetQuality, LeftMagnetGenerator, lambda theta: -cos(theta)*M*g*R, I,theta0=stable_point,STATIC=True)
     
     # Right Magnet
     RightMagnetGenerator = (lambda idx, theta: Vector2(D+2*R*idx*cos(theta)/(MagnetQuality-1),
@@ -78,8 +78,17 @@ def main():
         if index % 1000 == 0:
             print(SIMULATION_TIME * index / num)
 
+        def getAngularAcceleration1(theta1,theta2):
+            system.getMagnet(Magnet1_id).setTheta(theta1)
+            system.getMagnet(Magnet2_id).setTheta(theta2)
+            return system.getMagnet(Magnet1_id).getAngularAcceleration(system.magnets,Magnet1_id)
+        def getAngularAcceleration2(theta1,theta2):
+            system.getMagnet(Magnet1_id).setTheta(theta1)
+            system.getMagnet(Magnet2_id).setTheta(theta2)
+            return system.getMagnet(Magnet2_id).getAngularAcceleration(system.magnets,Magnet2_id)
+
         # Update the system
-        system.update()
+        system.update(getAngularAcceleration1,getAngularAcceleration2,Magnet1_id,Magnet2_id)
 
         left[index], right[index] = system.getData([Magnet1_id,Magnet2_id])
         right[index] = pi-  right[index]
