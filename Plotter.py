@@ -30,6 +30,21 @@ def plot_graph(t, left, right):
     ax.title.set_color('white')
 
     # Plot the angles of the dipoles over time
-    plt.plot(t, -left, "c")
+    plt.plot(t, left, "c")
     plt.plot(t, right, "m")
     plt.show()
+
+def save_as_image(system, filename, xmin, ymin, xmax, ymax):
+		fig, ax = plt.subplots()
+		ax.set_xlim(xmin, xmax)
+		ax.set_ylim(ymin, ymax)
+
+		for id, magnet in system.magnets:
+			for dipole_idx in range(magnet.dipole_number):
+				pos = magnet.getDipolePosition(dipole_idx,magnet.theta)
+				mom = magnet.getDipoleMoment(dipole_idx,magnet.theta)
+				mom*=(xmax-xmin)/(30*abs(mom))
+				ax.quiver(pos.x, pos.y, mom.x, mom.y, angles='xy', scale_units='xy', scale=1)
+
+		plt.savefig(filename)
+		plt.close(fig)

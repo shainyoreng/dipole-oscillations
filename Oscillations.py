@@ -4,7 +4,7 @@ from Vector2 import Vector2
 from math import sin, cos, sqrt, pi, exp
 
 from Utils import save_csv
-from Plotter import plot_graph
+from Plotter import plot_graph, save_as_image
 
 import numpy as np
 import csv
@@ -12,13 +12,13 @@ import csv
 # Constants
 M = 0.005  # Mass of the dipole
 g = 9.8  # Acceleration due to gravity
-R = 0.0396  # Radius of the dipole
-m = 0.35 * 10 ** -5  # Magnetic moment
+R = 0.01  # Radius of the dipole
+m = 0.31 * 10 ** -3.5  # Magnetic moment
 I = 3 / 2 * M * R * R  # Moment of inertia
 D = 0.04  # Distance between dipoles
 
 # Simulation parameters
-DT = 0.001  # Time step for the simulation
+DT = 0.0001  # Time step for the simulation
 SIMULATION_TIME = 1  # Total simulation time
 ANIMATION_SPEED = 1  # compared to real time
 FRAME_TO_DATA_RATIO = 1  # Number of data points between frames
@@ -29,9 +29,9 @@ RESISTANCE = 0.00  # Resistance (damping) term
 ALPHA = 0  # coefficient for counteracting energy gain
 
 # Stable point for the dipole
-stable_point = 3.1538186777539536
+stable_point = 0.3
 
-MagnetQuality = 10  # Number of dipoles in each magnet
+MagnetQuality = 15  # Number of dipoles in each magnet
 
 def main():
     """
@@ -40,25 +40,30 @@ def main():
     # Create Magnets
     # Center Magnet, (position,moment)
     CenterMagnetGenerator = (lambda idx, theta: Vector2(2*R*idx/(MagnetQuality-1)-R, 0),
-                        lambda idx, theta: Vector2(0, m/MagnetQuality))
+                             lambda idx, theta: Vector2(0, m/MagnetQuality))
     CenterMagnet = Magnet2(MagnetQuality, CenterMagnetGenerator, lambda theta: 0, I, STATIC=True)
 
     # Left Magnet
-    LeftMagnetGenerator = (lambda idx, theta: Vector2(R*idx*cos(theta)/(MagnetQuality-1)-D, R*idx*sin(theta)/(MagnetQuality-1)),
-                        lambda idx, theta: Vector2(-sin(theta)*m/MagnetQuality, cos(theta)*m/MagnetQuality))
-    LeftMagnet = Magnet2(MagnetQuality, LeftMagnetGenerator, lambda theta: cos(theta)*M*g*R, I,theta0=0.6)
-
+    LeftMagnetGenerator = (lambda idx, theta: Vector2(2*R*idx*cos(theta)/(MagnetQuality-1)-D,
+                                                      2*R*idx*sin(theta)/(MagnetQuality-1)),
+                           lambda idx, theta: Vector2(-sin(theta)*m/MagnetQuality,
+                                                       cos(theta)*m/MagnetQuality))
+    LeftMagnet = Magnet2(MagnetQuality, LeftMagnetGenerator, lambda theta: -cos(theta)*M*g*R, I,theta0=stable_point)
     
     # Right Magnet
-    RightMagnetGenerator = (lambda idx, theta: Vector2(D-R*idx*cos(theta)/(MagnetQuality-1), R*idx*sin(theta)/(MagnetQuality-1)),
-                        lambda idx, theta: Vector2(sin(theta)*m/MagnetQuality, cos(theta)*m/MagnetQuality))
-    RightMagnet = Magnet2(MagnetQuality, LeftMagnetGenerator, lambda theta: -cos(theta)*M*g*R, I,theta0=-0.5)
+    RightMagnetGenerator = (lambda idx, theta: Vector2(D+2*R*idx*cos(theta)/(MagnetQuality-1),
+                                                         2*R*idx*sin(theta)/(MagnetQuality-1)),
+                            lambda idx, theta: Vector2(sin(theta)*m/MagnetQuality,
+                                                      -cos(theta)*m/MagnetQuality))
+    RightMagnet = Magnet2(MagnetQuality, RightMagnetGenerator, lambda theta: -cos(theta)*M*g*R, I,theta0=pi-stable_point)
 
     # Create the magnetic system
     system = MagneticSystem(DT)
     Magnet1_id = system.addMagnet(LeftMagnet)
     Magnet2_id = system.addMagnet(RightMagnet)
     system.addMagnet(CenterMagnet)
+
+    save_as_image(system,'system.png',-.05,0,.05,0.03)
 
     # Simulation parameters
     num = round(SIMULATION_TIME / DT)
@@ -77,7 +82,7 @@ def main():
         system.update()
 
         left[index], right[index] = system.getData([Magnet1_id,Magnet2_id])
-
+        right[index] = pi-  right[index]
         # Apply damping effect to counteract energy gain from the approximation (DT!=0)
         # This should be moved into a function somewhere else
         system.damp(stable_point, ALPHA)
