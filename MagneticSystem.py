@@ -29,16 +29,13 @@ class MagneticSystem:
 		magnet2 = self.getMagnet(magnet2_id)
 
 		theta1,theta2,omega1,omega2 = magnet1.theta,magnet2.theta,magnet1.omega,magnet2.omega
-		theta1,theta2,omega1,omega2 = approximation_increment_RNK6f7(ddtheta1,ddtheta1,theta1,theta2,omega1,omega2,self.Dt)
+		theta1,theta2,omega1,omega2 = approximation_increment_RNK6f7(ddtheta1,ddtheta2,theta1,theta2,omega1,omega2,self.Dt)
 
 		magnet1.theta = theta1
 		magnet1.omega = omega1
 
-		magnet1.theta = theta2
-		magnet1.omega = omega2
-
-		for id, magnet in self.magnets:
-			magnet.update(self.Dt,self.magnets,id)
+		magnet2.theta = theta2
+		magnet2.omega = omega2
 	
 	def getData(self,magnets_id):
 		data = []
